@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useTimeStore, cityData } from '../store/timeStore';
+import { useLanguageStore } from '../store/languageStore';
 
 export const AddCitySection = React.memo(() => {
   const { cities, addCity } = useTimeStore();
+  const { translate } = useLanguageStore();
   const [showModal, setShowModal] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -39,7 +41,7 @@ export const AddCitySection = React.memo(() => {
         onClick={handleOpenModal}
       >
         <span>+</span>
-        添加城市
+        {translate('addCity')}
       </button>
 
       {showModal && (
@@ -55,7 +57,7 @@ export const AddCitySection = React.memo(() => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="modal-header">
-              <h2>选择城市</h2>
+              <h2>{translate('selectCity')}</h2>
               <button
                 className="modal-close"
                 onClick={() => {
@@ -71,14 +73,14 @@ export const AddCitySection = React.memo(() => {
               <input
                 type="text"
                 className="search-input"
-                placeholder="搜索城市（中文名/英文名/国家）..."
+                placeholder={translate('searchPlaceholder')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 autoFocus
               />
               {searchQuery && (
                 <div className="search-result-count">
-                  找到 {availableCities.length} 个城市
+                  {translate('searchResultCount', { count: availableCities.length })}
                 </div>
               )}
             </div>
@@ -86,7 +88,7 @@ export const AddCitySection = React.memo(() => {
             <div className="city-list">
               {availableCities.length === 0 ? (
                 <div className="no-results">
-                  未找到匹配的城市
+                  {translate('noResults')}
                 </div>
               ) : (
                 availableCities.map(city => (

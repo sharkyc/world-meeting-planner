@@ -1,9 +1,11 @@
 import React, { useMemo } from 'react';
 import { DateTime } from 'luxon';
 import { useTimeStore, isWorkingHours, getTimeOfDay, formatUTCOffset } from '../store/timeStore';
+import { useLanguageStore } from '../store/languageStore';
 
 export const CityCard = React.memo(({ city }) => {
   const { currentTime, getTimeDifference, removeCity } = useTimeStore();
+  const { translate } = useLanguageStore();
 
   const cityTime = useMemo(() => {
     return currentTime.setZone(city.timezone);
@@ -27,6 +29,15 @@ export const CityCard = React.memo(({ city }) => {
     return getTimeOfDay(cityTime);
   }, [cityTime]);
 
+  const timeLabels = useMemo(() => {
+    return {
+      morning: translate('timeAxis.morning'),
+      afternoon: translate('timeAxis.afternoon'),
+      night: translate('timeAxis.night'),
+      working: translate('timeAxis.working')
+    };
+  }, [translate]);
+
   const handleRemove = () => {
     removeCity(city.id);
   };
@@ -38,7 +49,7 @@ export const CityCard = React.memo(({ city }) => {
         <button
           className="city-card-remove"
           onClick={handleRemove}
-          aria-label={`移除${city.name}`}
+          aria-label={`${translate('removeCity')} ${city.name}`}
         >
           ×
         </button>
@@ -51,11 +62,11 @@ export const CityCard = React.memo(({ city }) => {
       </div>
 
       <div className={`city-card-status ${working ? 'working' : 'offline'}`}>
-        {working ? '💼 工作时间' : '🌙 休息时间'}
+        {working ? `💼 ${translate('working')}` : `🌙 ${translate('offline')}`}
         <span> · </span>
-        {timeOfDay === 'Morning' && '☀️ 上午'}
-        {timeOfDay === 'Afternoon' && '🌤️下午'}
-        {timeOfDay === 'Night' && '🌙夜晚'}
+        {timeOfDay === 'Morning' && `☀️ ${timeLabels.morning}`}
+        {timeOfDay === 'Afternoon' && `🌤️${timeLabels.afternoon}`}
+        {timeOfDay === 'Night' && `🌙${timeLabels.night}`}
       </div>
     </div>
   );

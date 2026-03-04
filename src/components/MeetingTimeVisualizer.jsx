@@ -1,8 +1,10 @@
 import React, { useMemo } from 'react';
 import { useTimeStore, generateTimelineSegments, isWorkingHours, getTimeOfDay } from '../store/timeStore';
+import { useLanguageStore } from '../store/languageStore';
 
 export const MeetingTimeVisualizer = React.memo(() => {
   const { cities, currentTime, getBestMeetingSlots, getTimeDifference } = useTimeStore();
+  const { translate } = useLanguageStore();
 
   const bestSlots = useMemo(() => {
     return getBestMeetingSlots();
@@ -28,8 +30,8 @@ export const MeetingTimeVisualizer = React.memo(() => {
       <div className="meeting-visualizer">
         <div className="visualizer-header">
           <div>
-            <div className="visualizer-title">会议时间规划</div>
-            <div className="visualizer-subtitle">添加至少2个城市以查看最佳会议时间</div>
+            <div className="visualizer-title">{translate('meetingPlanner')}</div>
+            <div className="visualizer-subtitle">{translate('meetingPlannerSubtitle')}</div>
           </div>
         </div>
       </div>
@@ -40,9 +42,9 @@ export const MeetingTimeVisualizer = React.memo(() => {
     <div className="meeting-visualizer">
       <div className="visualizer-header">
         <div>
-          <div className="visualizer-title">会议时间规划</div>
+          <div className="visualizer-title">{translate('meetingPlanner')}</div>
           <div className="visualizer-subtitle">
-            绿色表示工作时间（9:00-18:00），黑色边框表示所有城市重叠时间
+            {translate('meetingPlannerDesc')}
           </div>
         </div>
       </div>
@@ -79,7 +81,7 @@ export const MeetingTimeVisualizer = React.memo(() => {
                   <div
                     key={index}
                     className={segmentClass}
-                    title={`${segment.hour}:00 - ${segment.hour + 1}:00 ${segment.isWorkingHours ? '(工作时间)' : '(休息时间)'}`}
+                    title={`${segment.hour}:00 - ${segment.hour + 1}:00 ${segment.isWorkingHours ? `(${translate('timeAxis.working')})` : `(${translate('offline')})`}`}
                   />
                 );
               })}
@@ -90,7 +92,7 @@ export const MeetingTimeVisualizer = React.memo(() => {
         {/* 最佳会议时间指示 */}
         {bestSlots.length > 0 && (
           <div className="best-meeting-indicator">
-            <div className="best-meeting-label">✓ 最佳会议时间（所有城市工作时间重叠）</div>
+            <div className="best-meeting-label">{translate('bestMeetingTime')}</div>
             <div className="best-meeting-slots">
               {bestSlots.map((slot, index) => {
                 const start = slot.startHour.toString().padStart(2, '0');

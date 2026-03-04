@@ -93,6 +93,52 @@ body {
   margin-bottom: var(--space-lg);
 }
 
+/* 顶部操作按钮区域 */
+.header-actions {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+/* ============================================
+   语言切换按钮
+   ============================================ */
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.language-switcher:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--accent-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.language-switcher:active {
+  transform: translateY(0);
+}
+
+.lang-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.lang-text {
+  font-weight: 600;
+}
+
 /* ============================================
    分享按钮
    ============================================ */

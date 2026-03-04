@@ -1,6 +1,10 @@
 # 🌍 世界会议时间规划工具
 
+> **在线演示**: [https://sharkyc.github.io/world-meeting-planner/](https://sharkyc.github.io/world-meeting-planner/) 🚀
+
 一个优雅的跨时区会议时间规划应用，帮助全球化团队轻松找到最佳会议时间，避免时区转换的烦恼。
+
+**✨ 新功能**: 现已支持中英文双语切换！点击右上角语言按钮即可切换。
 
 ## ✨ 功能特性
 
@@ -42,12 +46,19 @@
 - **自动恢复**：打开分享链接自动加载相同的城市配置
 - **本地存储**：城市列表自动保存到浏览器，刷新页面不丢失
 
+#### 🌐 国际化支持
+- **双语界面**：支持中文和英文界面
+- **自动检测**：根据浏览器语言自动选择界面语言
+- **手动切换**：点击右上角语言按钮（🇨🇳/🇺🇸）随时切换
+- **本地化存储**：语言偏好保存在浏览器中
+
 ## 🛠️ 技术栈
 
 ### 前端框架
 - **React 18** - 现代化 UI 框架
 - **Vite 7** - 极速开发构建工具
 - **Zustand** - 轻量级状态管理
+- **i18n** - 自定义国际化方案
 
 ### 时间处理
 - **Luxon** - 强大的日期时间处理库
@@ -121,9 +132,13 @@ world-clock-map/
 │   │   ├── CityCard.jsx              # 城市时间卡片
 │   │   ├── MeetingTimeVisualizer.jsx # 会议时间可视化
 │   │   ├── AddCitySection.jsx        # 添加城市区域
-│   │   └── ShareButton.jsx           # 分享按钮
+│   │   ├── ShareButton.jsx           # 分享按钮
+│   │   └── LanguageSwitcher.jsx      # 语言切换按钮
 │   ├── store/
-│   │   └── timeStore.js      # Zustand 状态管理
+│   │   ├── timeStore.js      # 时间状态管理
+│   │   └── languageStore.js  # 语言状态管理
+│   ├── i18n/
+│   │   └── translations.js   # 翻译文件（中英文）
 │   ├── styles/
 │   │   └── global.css        # 全局样式
 │   ├── App.jsx               # 主应用组件
@@ -132,7 +147,8 @@ world-clock-map/
 ├── index.html                # HTML 模板
 ├── package.json              # 依赖配置
 ├── vite.config.js           # Vite 配置
-└── README.md                # 项目文档
+├── README.md                # 中文文档
+└── README_EN.md             # 英文文档
 ```
 
 ## 🎯 核心算法
@@ -222,19 +238,22 @@ const findBestMeetingSlots = (cities, date) => {
 
 ## 🛣️ 开发路线图
 
-### v1.1（计划中）
+### v1.1（已完成 ✅）
+- [x] 中英文双语界面支持
+- [x] 浏览器语言自动检测
+- [x] 语言偏好本地存储
+
+### v1.2（计划中）
 - [ ] 支持拖拽调整城市顺序
 - [ ] 添加会议时长设置（30分钟、1小时、2小时）
 - [ ] 日历视图：选择特定日期查看时区
 - [ ] 导出会议邀请（.ics 文件）
-
-### v1.2（计划中）
-- [ ] 多语言支持（英语、日语、韩语）
 - [ ] 深色模式
 - [ ] 自定义工作时间设置
 - [ ] 常用城市收藏功能
 
 ### v2.0（远期规划）
+- [ ] 更多语言支持（日语、韩语、法语等）
 - [ ] PWA 支持，离线使用
 - [ ] 桌面小组件（Windows/macOS）
 - [ ] 浏览器扩展（快速查看其他网站的时间）
@@ -263,7 +282,13 @@ MIT License - 详见 [LICENSE](LICENSE) 文件
 
 ## 👨‍💻 作者
 
-Created with ❤️ by Claude Code
+Created with ❤️ by [sharkyc](https://github.com/sharkyc)
+
+## 🌐 在线体验
+
+**GitHub Pages**: [https://sharkyc.github.io/world-meeting-planner/](https://sharkyc.github.io/world-meeting-planner/)
+
+立即体验跨时区会议规划的便利！
 
 ## 🙏 致谢
 

@@ -5,11 +5,19 @@ import { CityCard } from './components/CityCard';
 import { MeetingTimeVisualizer } from './components/MeetingTimeVisualizer';
 import { AddCitySection } from './components/AddCitySection';
 import { ShareButton } from './components/ShareButton';
+import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { useTimeStore, decodeCitiesFromUrl } from './store/timeStore';
+import { useLanguageStore } from './store/languageStore';
 import './styles/global.css';
 
 function App() {
   const { cities, setCurrentTime, setCities } = useTimeStore();
+  const { language, translate } = useLanguageStore();
+
+  // Update document title based on language
+  useEffect(() => {
+    document.title = translate('appTitle');
+  }, [language, translate]);
 
   // 全局时间更新（单一定时器）
   useEffect(() => {
@@ -46,10 +54,13 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* 顶部：本地时间大号显示和分享按钮 */}
+      {/* 顶部：本地时间大号显示和工具栏 */}
       <div className="header-section">
         <LocalTimeHeader />
-        <ShareButton />
+        <div className="header-actions">
+          <LanguageSwitcher />
+          <ShareButton />
+        </div>
       </div>
 
       {/* 中部：已选城市对比卡片 */}
