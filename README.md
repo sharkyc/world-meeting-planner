@@ -1,5 +1,7 @@
 # 🌍 世界会议时间规划工具
 
+[English](README_EN.md) | 简体中文
+
 > **在线演示**: [https://sharkyc.github.io/world-meeting-planner/](https://sharkyc.github.io/world-meeting-planner/) 🚀
 
 一个优雅的跨时区会议时间规划应用，帮助全球化团队轻松找到最佳会议时间，避免时区转换的烦恼。

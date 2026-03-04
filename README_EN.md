@@ -1,5 +1,7 @@
 # 🌍 World Meeting Time Planner
 
+English | [简体中文](README.md)
+
 > **Live Demo**: [https://sharkyc.github.io/world-meeting-planner/](https://sharkyc.github.io/world-meeting-planner/) 🚀
 
 An elegant cross-timezone meeting planning application that helps global teams easily find the best meeting times and avoid timezone conversion headaches.
