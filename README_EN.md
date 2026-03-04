@@ -1,5 +1,9 @@
 # 🌍 World Meeting Time Planner
 
+<div align="center">
+  <img src="public/logo.svg" alt="World Meeting Planner Logo" width="200" height="280">
+</div>
+
 English | [简体中文](README.md)
 
 > **Live Demo**: [https://sharkyc.github.io/world-meeting-planner/](https://sharkyc.github.io/world-meeting-planner/) 🚀
@@ -72,6 +76,17 @@ An elegant cross-timezone meeting planning application that helps global teams e
 - **CSS Custom Properties**: Unified theme variable system
 
 ## 🎨 Design Style
+
+### Logo Design Concept
+
+The logo features a four-color gradient ring design, symbolizing collaboration across four major time zones worldwide:
+
+- 🟣 **Purple Gradient** (Morning 6:00-12:00): Represents the start of a new day
+- 🟢 **Green Gradient** (Working Hours 9:00-18:00): Symbolizes productive collaboration
+- 🟠 **Orange Gradient** (Afternoon 12:00-18:00): Reflects warm afternoon hours
+- 🔵 **Blue Gradient** (Night 18:00-6:00): Represents quiet rest time
+
+The minimalist clock grid at the center, combined with the green highlight point at the top, embodies the core functionality of "finding the best meeting time."
 
 ### Minimalist Principles
 - **Tool First**: Clear functionality, no fancy effects

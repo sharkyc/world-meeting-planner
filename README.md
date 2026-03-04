@@ -1,5 +1,9 @@
 # 🌍 世界会议时间规划工具
 
+<div align="center">
+  <img src="public/logo.svg" alt="World Meeting Planner Logo" width="200" height="280">
+</div>
+
 [English](README_EN.md) | 简体中文
 
 > **在线演示**: [https://sharkyc.github.io/world-meeting-planner/](https://sharkyc.github.io/world-meeting-planner/) 🚀
@@ -72,6 +76,17 @@
 - **CSS 自定义属性**：统一的主题变量系统
 
 ## 🎨 设计风格
+
+### Logo 设计理念
+
+Logo 采用四色渐变圆环设计，象征着全球四大时区的协作：
+
+- 🟣 **紫色渐变**（早晨 6:00-12:00）：代表新的一天的开始
+- 🟢 **绿色渐变**（工作时间 9:00-18:00）：象征高效协作的生产力
+- 🟠 **橙色渐变**（下午 12:00-18:00）：体现温暖的午后时光
+- 🔵 **蓝色渐变**（夜晚 18:00-6:00）：表示静谧的休息时间
+
+中心简洁的时钟网格设计，结合顶部的绿色高光点，寓意"找到最佳会议时间"的核心功能。
 
 ### 极简主义原则
 - **工具优先**：功能明确，不花哨
