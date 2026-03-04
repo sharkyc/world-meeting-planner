@@ -257,7 +257,6 @@ export const cityData = [
   { id: 'palikir', name: '帕利基尔', nameEn: 'Palikir', country: '密克罗尼西亚', timezone: 'Pacific/Pohnpei' },
 
   // 其他重要岛屿和地区
-  { id: 'reykjavik', name: '雷克雅未克', nameEn: 'Reykjavik', country: '冰岛', timezone: 'Atlantic/Reykjavik' },
   { id: 'stanley', name: '斯坦利', nameEn: 'Stanley', country: '福克兰群岛', timezone: 'Atlantic/Stanley' },
   { id: 'jamestown', name: '詹姆斯敦', nameEn: 'Jamestown', country: '圣赫勒拿', timezone: 'Atlantic/St_Helena' },
   { id: 'grytviken', name: '格里特维肯', nameEn: 'Grytviken', country: '南乔治亚和南桑威奇群岛', timezone: 'Atlantic/South_Georgia' },
