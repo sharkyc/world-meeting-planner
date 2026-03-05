@@ -46,7 +46,24 @@ export const translations = {
     // 状态
     loading: '加载中...',
     saving: '保存中...',
-    saved: '已保存'
+    saved: '已保存',
+
+    // 日期选择
+    today: '今天',
+    tomorrow: '明天',
+    nextMonday: '下周一',
+    prevDay: '前一天',
+    nextDay: '后一天',
+    selectDate: '选择日期',
+
+    // 周视图
+    weeklyBestTime: '本周最佳会议时间',
+    weeklyBestTimeDesc: '查看本周每天的最佳会议时段推荐',
+    addAtLeastTwoCities: '请至少添加2个城市以查看周视图',
+    noOverlap: '无重叠时间',
+    goldRecommendation: '4小时以上（最佳）',
+    silverRecommendation: '2-4小时（推荐）',
+    bronzeRecommendation: '1-2小时（可接受）'
   },
 
   en: {
@@ -94,7 +111,24 @@ export const translations = {
     // Status
     loading: 'Loading...',
     saving: 'Saving...',
-    saved: 'Saved'
+    saved: 'Saved',
+
+    // Date selector
+    today: 'Today',
+    tomorrow: 'Tomorrow',
+    nextMonday: 'Next Monday',
+    prevDay: 'Previous day',
+    nextDay: 'Next day',
+    selectDate: 'Select date',
+
+    // Week view
+    weeklyBestTime: 'Best Meeting Time This Week',
+    weeklyBestTimeDesc: 'View recommended meeting slots for each day of the week',
+    addAtLeastTwoCities: 'Please add at least 2 cities to view weekly schedule',
+    noOverlap: 'No overlapping time',
+    goldRecommendation: '4+ hours (Best)',
+    silverRecommendation: '2-4 hours (Recommended)',
+    bronzeRecommendation: '1-2 hours (Acceptable)'
   }
 };
 

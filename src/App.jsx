@@ -6,6 +6,8 @@ import { MeetingTimeVisualizer } from './components/MeetingTimeVisualizer';
 import { AddCitySection } from './components/AddCitySection';
 import { ShareButton } from './components/ShareButton';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
+import { DateSelector } from './components/DateSelector';
+import { WeekView } from './components/WeekView';
 import { useTimeStore, decodeCitiesFromUrl } from './store/timeStore';
 import { useLanguageStore } from './store/languageStore';
 import './styles/global.css';
@@ -63,6 +65,9 @@ function App() {
         </div>
       </div>
 
+      {/* 日期选择器 */}
+      <DateSelector />
+
       {/* 中部：已选城市对比卡片 */}
       {hasCities && (
         <div className="cities-container">
@@ -76,6 +81,9 @@ function App() {
 
       {/* 下部：24小时时间轴重叠可视化 */}
       <MeetingTimeVisualizer />
+
+      {/* 周视图：本周最佳会议时间推荐 */}
+      <WeekView />
 
       {/* 底部：添加城市按钮 */}
       <AddCitySection />

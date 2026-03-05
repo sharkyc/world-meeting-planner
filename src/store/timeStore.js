@@ -402,9 +402,35 @@ export const useTimeStore = create((set, get) => ({
   cities: [],
   currentTime: DateTime.local(),
   localTimezone: getLocalTimezone(),
+  selectedDate: DateTime.local(), // 当前选中的日期
 
   // 操作
   setCurrentTime: (time) => set({ currentTime: time }),
+
+  setSelectedDate: (date) => {
+    // 如果传入的是 DateTime 对象，直接使用；否则尝试解析
+    const newDate = date instanceof DateTime ? date : DateTime.fromJSDate(date);
+    set({ selectedDate: newDate });
+  },
+
+  // 日期导航
+  goToToday: () => set({ selectedDate: DateTime.local() }),
+
+  goToNextDay: () => set((state) => ({
+    selectedDate: state.selectedDate.plus({ days: 1 })
+  })),
+
+  goToPrevDay: () => set((state) => ({
+    selectedDate: state.selectedDate.minus({ days: 1 })
+  })),
+
+  goToNextWeek: () => set((state) => ({
+    selectedDate: state.selectedDate.plus({ weeks: 1 })
+  })),
+
+  goToPrevWeek: () => set((state) => ({
+    selectedDate: state.selectedDate.minus({ weeks: 1 })
+  })),
 
   addCity: (city) => set((state) => {
     // 检查是否已存在
@@ -429,8 +455,34 @@ export const useTimeStore = create((set, get) => ({
 
   // 获取器
   getBestMeetingSlots: () => {
-    const { cities, currentTime } = get();
-    return findBestMeetingSlots(cities, currentTime);
+    const { cities, selectedDate } = get();
+    return findBestMeetingSlots(cities, selectedDate);
+  },
+
+  getBestMeetingSlotsForDate: (date) => {
+    const { cities } = get();
+    return findBestMeetingSlots(cities, date);
+  },
+
+  // 获取一周的每天最佳时段
+  getWeeklyBestSlots: () => {
+    const { selectedDate } = get();
+    const weekSlots = [];
+
+    // 获取本周7天（从周一到周日）
+    const startOfWeek = selectedDate.startOf('week');
+
+    for (let i = 0; i < 7; i++) {
+      const dayDate = startOfWeek.plus({ days: i });
+      const slots = get().getBestMeetingSlotsForDate(dayDate);
+      weekSlots.push({
+        date: dayDate,
+        dayOfWeek: dayDate.weekday,
+        slots
+      });
+    }
+
+    return weekSlots;
   },
 
   getTimeDifference: (targetTimezone) => {

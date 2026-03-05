@@ -58,6 +58,21 @@ An elegant cross-timezone meeting planning application that helps global teams e
 - **Manual Switch**: Click the language button (🇨🇳/🇺🇸) in the top-right corner to switch anytime
 - **Localized Storage**: Language preference saved in browser
 
+#### 📅 Calendar View
+- **Date Selector**: Flexibly choose any date to view meeting times
+  - Previous/Next day quick navigation
+  - Shortcut buttons: Today, Tomorrow, Next Monday
+  - Calendar picker: Precisely select any future date
+- **Weekly View Recommendations**: One-click view of best meeting times for the entire week
+  - 🥇 Gold Recommendation: 4+ hours overlap (Best)
+  - 🥈 Silver Recommendation: 2-4 hours overlap (Recommended)
+  - 🥉 Bronze Recommendation: 1-2 hours overlap (Acceptable)
+- **Smart Markers**:
+  - Today highlighted
+  - Weekends marked in gray
+  - No overlap warning alerts
+- **Future Planning**: Easily plan meetings for next week, next month, or beyond
+
 ## 🛠️ Tech Stack
 
 ### Frontend Framework
@@ -221,7 +236,12 @@ const findBestMeetingSlots = (cities, date) => {
 - Ensure audiences in key markets can watch
 - Avoid late night hours in important markets
 
-### 4. Remote Collaboration
+### 4. Future Meeting Planning
+- Use the date selector to plan meetings weeks or months in advance
+- Check weekly view to identify the best day for your meeting
+- Compare multiple dates to find optimal time slots
+
+### 5. Remote Collaboration
 - Daily collaboration for distributed teams
 - Know your colleagues' local times
 - Choose appropriate times for communication
@@ -233,6 +253,10 @@ const findBestMeetingSlots = (cities, date) => {
 3. **View Details**: Hover over the timeline to see specific time period information
 4. **Share Configuration**: Click the "Share" button in the top-right, copy the link to team members
 5. **Best Times**: Pay attention to the green-bordered time slots at the bottom - these are golden hours suitable for all cities
+6. **Plan Future Meetings**:
+   - Use the date selector to choose a future date
+   - Check the weekly view to find the best meeting day of the week
+   - Click "Today", "Tomorrow", or "Next Monday" for quick navigation
 
 ## 📱 Responsive Design
 
@@ -260,10 +284,15 @@ const findBestMeetingSlots = (cities, date) => {
 - [x] Browser language auto-detection
 - [x] Language preference local storage
 
-### v1.2 (Planned)
+### v1.2 (Completed ✅)
+- [x] Date selector (single day/weekly view)
+- [x] Weekly view meeting time recommendations
+- [x] Smart recommendation tier system (Gold/Silver/Bronze)
+- [x] Future date meeting planning
+
+### v1.3 (Planned)
 - [ ] Drag and drop to reorder cities
 - [ ] Meeting duration settings (30min, 1 hour, 2 hours)
-- [ ] Calendar view: Select specific dates to check timezones
 - [ ] Export meeting invitations (.ics files)
 - [ ] Dark mode
 - [ ] Custom working hours settings
